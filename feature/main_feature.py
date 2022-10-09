@@ -4,7 +4,6 @@ import json
 
 
 def main():
-    
     gcs_project_id = "test01-lincoln-project"
     gcs_bucket_name = "exercice-python-de-bucket"
 
@@ -30,6 +29,4 @@ def main():
     # Return result
     print(list(df['journal']))
 
-    return(list(df['journal']))
-
-
+main()
