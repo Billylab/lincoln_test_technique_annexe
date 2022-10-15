@@ -23,7 +23,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		log.Fatalf("cmd.Run() failed with %s\n", err)
 		}
 
-	w.Write(out) 
+	w.Write(out.String()) 
 	// w.Write("translated phrase: %q\n", out.String()) MARCHE PAS 
 	// w.Write([]byte("translated phrase: %q\n", out.String())) MARCHE PAS
 	// w.Write([]byte("OK"))          MARCHE
