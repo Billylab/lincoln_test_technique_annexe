@@ -15,20 +15,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	var out bytes.Buffer
 	cmd.Stdout = &out
-
-	// cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
 	if err != nil {
 		log.Fatalf("cmd.Run() failed with %s\n", err)
 		}
-
+	// https://www.alexedwards.net/blog/golang-response-snippets
+	// https://stackoverflow.com/questions/29237411/how-to-convert-type-bytes-buffer-to-use-as-byte-in-argument-to-w-write
+	// https://zetcode.com/golang/exec-command/
 	w.Write(out.Bytes()) 
-	// w.Write("translated phrase: %q\n", out.String()) MARCHE PAS 
-	// w.Write([]byte("translated phrase: %q\n", out.String())) MARCHE PAS
-	// w.Write([]byte("OK"))          MARCHE
-	// w.Write([]byte("%s\n", out))   MARCHE PAS
-
 	}
 
 func main() {
