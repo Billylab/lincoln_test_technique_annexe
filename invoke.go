@@ -13,7 +13,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	log.Print("Python Run: received a request")
 	cmd := exec.Command("/bin/sh", "script.sh")
 
-	var out bytes.Buffer
+	// var out bytes.Buffer
 	// cmd.Stdout = &out
 	// fmt.Printf("Output: %q\n", out.String())
 	cmd.Stdout = os.Stdout
