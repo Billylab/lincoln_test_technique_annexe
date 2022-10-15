@@ -1,6 +1,7 @@
 from google.cloud import storage
 import pandas as pd
 import json
+import sys
 
 
 def main():
@@ -28,6 +29,7 @@ def main():
 
     # Return result
     print(list(df['journal']))
-    return list(df['journal'])
+    sys.exit(0)
+    # return list(df['journal'])
 
 main()
