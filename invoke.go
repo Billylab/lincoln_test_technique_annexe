@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"log"
 	"net/http"
@@ -12,10 +13,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	log.Print("Python Run: received a request")
 	cmd := exec.Command("/bin/sh", "script.sh")
 
-	// var out bytes.Buffer
-	// cmd.Stdout = &out
-	// fmt.Printf("Output: %q\n", out.String())
-	cmd.Stdout = os.Stdout
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	fmt.Printf("Output: %q\n", out.String())
+	// cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
 	if err != nil {
