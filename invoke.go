@@ -18,7 +18,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		log.Fatalf("cmd.Run() failed with %s\n", err)
 		}
 	}
-	fmt.Println("Returned:", MyFunc())
+
+	cmd.Stdout = &out
+	fmt.Printf("Output: %q\n", out.String())
 
 func main() {
 	log.Print("Python Run: starting server...")
