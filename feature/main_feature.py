@@ -28,5 +28,6 @@ def main():
 
     # Return result
     print(list(df['journal']))
+    return list(df['journal']
 
 main()
