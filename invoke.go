@@ -22,6 +22,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalf("cmd.Run() failed with %s\n", err)
 		}
+
+	w.Write([]byte("OK"))
+
 	}
 
 func main() {
