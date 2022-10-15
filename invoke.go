@@ -16,7 +16,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	var out bytes.Buffer
 	cmd.Stdout = &out
 
-	cmd.Stdout = os.Stdout
+	// cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
 	if err != nil {
